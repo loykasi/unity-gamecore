@@ -1,0 +1,10 @@
+{
+    "name": "com.loykasi.gamecore",
+    "version": "1.0.0",
+    "displayName": "GameCore",
+    "description": "This is an example package",
+    "unity": "2022.1",
+    "author": {
+      "name": "Loykasi"
+    }
+  }
