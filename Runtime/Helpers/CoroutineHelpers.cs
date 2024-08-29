@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,5 +18,24 @@ namespace GameCore.Helpers
             Debug.Log(duration);
             return _waitForSecondsTable[duration];
         }
-    }   
+
+        public static Coroutine DoAnimation(this MonoBehaviour monoBehaviour, float duration, System.Action<float> onSet, System.Action onComplete)
+        {
+            return monoBehaviour.StartCoroutine(RunAnimation(duration, onSet, onComplete));
+        }
+
+        public static IEnumerator RunAnimation(float duration, System.Action<float> onSet, System.Action onComplete)
+        {
+            float time = 0;
+            float dt = 1f / duration;
+            while (time < 1)
+            {
+                onSet(time);
+                time += dt * Time.deltaTime;
+                yield return null;
+            }
+            onSet(1);
+            onComplete?.Invoke();
+        }
+    }
 }
