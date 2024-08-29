@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace GameCore.Extensions
 {
     public static class MathfExtensions

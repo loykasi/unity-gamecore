@@ -93,6 +93,11 @@ namespace GameCore.Helpers
             DrawWireArc(center, radius, angle, Quaternion.Euler(0f, 0f, rotation) * Quaternion.Euler(- 90f, 0f, 0f), segment);
         }
 
+        public static void DrawWireArc2D(Vector2 center, Vector2 offset, float radius, float angle, float rotation, int segment = 20)
+        {
+            DrawWireArc(center, offset, radius, angle, Quaternion.Euler(0f, 0f, rotation) * Quaternion.Euler(- 90f, 0f, 0f), segment);
+        }
+
         public static void DrawWireArc(Vector3 center, float radius, float angle, Quaternion rotation, int segment = 20)
         {
             if (angle <= 0)
@@ -114,11 +119,6 @@ namespace GameCore.Helpers
                 from = to;
             }
             Gizmos.matrix = origin;
-        }
-
-        public static void DrawWireArc2D(Vector2 center, Vector2 offset, float radius, float angle, float rotation, int segment = 20)
-        {
-            DrawWireArc(center, offset, radius, angle, Quaternion.Euler(0f, 0f, rotation) * Quaternion.Euler(- 90f, 0f, 0f), segment);
         }
 
         public static void DrawWireArc(Vector3 center, Vector3 offset, float radius, float angle, Quaternion rotation, int segment = 20)
@@ -171,6 +171,19 @@ namespace GameCore.Helpers
                 from = to;
             }
             Gizmos.matrix = origin;
+        }
+
+        public static void DrawArrow(Vector3 position, Vector3 direction)
+        {
+            if (direction == Vector3.zero)
+            {
+                return;
+            }
+            Gizmos.DrawRay(position, direction);
+            Vector3 left = Quaternion.LookRotation(direction) * Quaternion.Euler(0f, 180f + 45f, 0f) * Vector3.forward;
+            Vector3 right = Quaternion.LookRotation(direction) * Quaternion.Euler(0f, 180f - 45f, 0f) * Vector3.forward;
+            Gizmos.DrawRay(position + direction, left * 0.1f);
+            Gizmos.DrawRay(position + direction, right * 0.1f);
         }
     }
 }

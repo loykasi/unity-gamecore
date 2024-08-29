@@ -1,7 +1,7 @@
 # GameCore
 Collection of scripts and tools for Unity version 2022 or later
 
-This repository contains many tools I currently develop to use in my projects.
+This repository contains many tools I am currently developing.
 
 ## Overview:
 
@@ -9,9 +9,9 @@ This repository contains many tools I currently develop to use in my projects.
 
 [Event Factory](#event-factory)
 
-[Gizmos](#gizmos)
-
 [Extension and Helpers](#extensions-and-helpers)
+
+[Extended Monobehaviour](#extended-monobehaviour)
 
 ## Sound System
 

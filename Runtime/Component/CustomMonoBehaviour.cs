@@ -25,7 +25,13 @@ namespace Gamecore.Component
         protected virtual void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
             _isLoaded = true;
+            OnSceneLoaded();
             OnEnableOrLoaded();
+        }
+
+        protected virtual void OnSceneLoaded()
+        {
+
         }
 
         protected virtual void OnEnableOrStart()
